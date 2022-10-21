@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Localisation{% endblock %}
+
+{% block content %}
+
+<h1 align="center">Location: </h1>
+         <div class="dropdown" name= vehicle method="GET" action="/" align="center">
+                <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" >Vehicles
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" >
+                    {% for row in vehicles %}
+                        <li>
+                            <a href="http://127.0.0.1:5500/website/templates/map.html" target="iframe_map">
+                                <option value="{{row.id}}">{{row.name}}</option>
+                            </a>
+                        </li>    
+                            <li class="divider"></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        <br>
+
+    <p align="center">
+        <iframe 
+            name="iframe_map" 
+            src="http://127.0.0.1:5500/website/templates/map.html" 
+            width="700" 
+            height="500">
+        </iframe>
+    </p>
+        
+{% endblock %}
