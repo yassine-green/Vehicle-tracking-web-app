@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e50ef31faa7939ca6fde9dd3584ec557 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e50ef31faa7939ca6fde9dd3584ec557" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e50ef31faa7939ca6fde9dd3584ec557 = L.map(
+                "map_e50ef31faa7939ca6fde9dd3584ec557",
+                {
+                    center: [36.7958, 10.1798],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_42f5a03e66461d5dfa5b44c5f5fe4606 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_e50ef31faa7939ca6fde9dd3584ec557);
+        
+    
+            var marker_d31ddca43d60673938cfd5ae762470bc = L.marker(
+                [36.7958, 10.1798],
+                {}
+            ).addTo(map_e50ef31faa7939ca6fde9dd3584ec557);
+        
+    
+            var icon_4f49b0e1b9bc3494b205566da6629d23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_d31ddca43d60673938cfd5ae762470bc.setIcon(icon_4f49b0e1b9bc3494b205566da6629d23);
+        
+    
+            marker_d31ddca43d60673938cfd5ae762470bc.bindTooltip(
+                `<div>
+                     <b>ID: M220</b><br><b>Latitude:</b> 36.7958<br><b>Longitude:</b> 10.1798<br><b>Altitude:</b> 11.0 m<br><b>Speed:</b> 22.0 km/h<br><b>Time:</b> 2023-05-15 11:42:05
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cb04fa04ea3780ae68f3b6c20bafe951 = L.marker(
+                [36.8007, 10.1922],
+                {}
+            ).addTo(map_e50ef31faa7939ca6fde9dd3584ec557);
+        
+    
+            var icon_fa2344a7f0d529c182c627a36df3b839 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_cb04fa04ea3780ae68f3b6c20bafe951.setIcon(icon_fa2344a7f0d529c182c627a36df3b839);
+        
+    
+            marker_cb04fa04ea3780ae68f3b6c20bafe951.bindTooltip(
+                `<div>
+                     <b>ID: R218</b><br><b>Latitude:</b> 36.8007<br><b>Longitude:</b> 10.1922<br><b>Altitude:</b> 3.0 m<br><b>Speed:</b> 0.0 km/h<br><b>Time:</b> 2023-05-15 12:35:53
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_55f743b3ef6aa96e07bb3c2833fa2ce2 = L.marker(
+                [36.8062, 10.1807],
+                {}
+            ).addTo(map_e50ef31faa7939ca6fde9dd3584ec557);
+        
+    
+            var icon_5246e50545502e39556ec3c067643847 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_55f743b3ef6aa96e07bb3c2833fa2ce2.setIcon(icon_5246e50545502e39556ec3c067643847);
+        
+    
+            marker_55f743b3ef6aa96e07bb3c2833fa2ce2.bindTooltip(
+                `<div>
+                     <b>ID: B2182</b><br><b>Latitude:</b> 36.8062<br><b>Longitude:</b> 10.1807<br><b>Altitude:</b> 7.0 m<br><b>Speed:</b> 13.0 km/h<br><b>Time:</b> 2023-05-17 10:17:33
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

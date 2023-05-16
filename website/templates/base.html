@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" type="image/ico" href="static/favicon.ico" />
+    
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <title>{% block title %}Home{% endblock %}</title>
+    <style>
+      .col-fixed { position:relative; min-height:1px; padding-right:15px; padding-left:15px; float:left; width:100%;  }
+      .col-fluid { position:relative; min-height:1px; padding-right:15px; padding-left:15px; float:left; width:100%;  }
+
+      @media (min-width: 768px) and (max-width: 991px) {    
+          .col-fixed { width:260px; }
+          .col-fluid { width:calc(100% - 350px);}        
+      }                                          
+      @media (min-width: 992px) and (max-width: 1199px) {
+          .col-fixed { width:260px; }
+          .col-fluid { width:calc(100% - 350px);}
+      }
+      @media (min-width: 1200px) {
+          .col-fixed { width:260px; }
+          .col-fluid { width:calc(100% - 350px);}
+      }
+
+      body {
+          background-color: #fbfbfb;
+          font-family: "Lato", sans-serif;
+          padding-left: 270px;
+        }
+        @media (min-width: 991.98px) {
+          main {
+            padding-left: 240px;
+          }
+        }
+         
+        /* Sidebar */
+        .sidebar {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          padding: 58px 0 0; /* Height of navbar */
+          box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+          width: 240px;
+          z-index: 600;
+        }
+        
+        @media (max-width: 991.98px) {
+          .sidebar {
+            width: 100%;
+          }
+        }
+        .sidebar .active {
+          border-radius: 5px;
+          box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+        }
+        
+        .sidebar-sticky {
+          position: relative;
+          top: 0;
+          height: calc(100vh - 48px);
+          padding-top: 0.5rem;
+          overflow-x: hidden;
+          overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+        }
+
+
+            .sidenav {
+              height: 100%;
+              width: 270px;
+              position: fixed;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              background-color: rgb(0, 77, 77);
+              overflow-x: hidden;
+              padding-top: 10px;
+            }
+            .logo {
+            text-align: center;
+            width: auto;
+            height: auto;
+            }
+            .sidenav a {
+              padding: 6px 8px 6px 16px;
+              text-decoration: none;
+              font-size: 25px;
+              color: #818181;
+              display: block;
+            }
+            
+            .sidenav a:hover {
+              color: #f1f1f1;
+            }
+            .navbar-nav{
+              padding-left: 20px;
+            }
+
+            .main {
+              margin-left: 160px; /* Same as the width of the sidenav */
+              font-size: 28px; /* Increased text to enable scrolling */
+              padding: 0px 10px;
+            }
+            
+            @media screen and (max-height: 450px) {
+              .sidenav {padding-top: 15px;}
+              .sidenav a {font-size: 18px;}
+            }
+            .alert {
+
+              z-index: 6;
+            }
+
+      </style>
+  
+  </head>
+  <body>
+   
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div class="container">{% block content %} {% endblock %}</div>
+   <div class="sidenav" id="navbar">
+    <div class="logo py-4">
+      <a href="http://127.0.0.1:5000/home">
+        <img src="{{url_for('static', filename='transtu_logo.png')}}" alt="transtu_logo" width=auto height="65"/>
+      </a>
+    </div>
+    <br>
+        <div class="navbar-nav">
+          {% if current_user.is_authenticated %}
+            <a class="nav-item nav-link" id="home" href="{{ url_for('auth.home')}}"><i class="fa fa-fw fa-bus"></i>    Vehicles</a>
+            <hr>
+            {% if current_user.id == 1 %}         
+              <a class="nav-item nav-link" id="admin" href="{{ url_for('auth.admin')}}"><i class="fa fa-fw fa-cogs"></i>    Manage Vehicles</a>
+            {% endif %}
+            <hr>
+            <a class="nav-item nav-link" id="logout" href="{{ url_for('auth.logout')}}"><i class="fa fa-fw fa-sign-out"></i>    Logout</a>
+          {% else %}
+          <hr>
+            <a class="nav-item nav-link" id="login" href="{{ url_for('auth.login')}}"><i class="fa fa-fw fa-sign-in"></i>    Login</a>
+            <hr>
+            <a class="nav-item nav-link" id="signUp" href="{{ url_for('auth.sign_up')}}"><i class="fa fa-fw fa-user"></i>    Sign Up</a>
+          {% endif %}
+        </div>
+      </div>
+    
+    <div class="main">
+      
+    </div>
+       
+
+    
+  
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+ 
+  </body>
+</html>
